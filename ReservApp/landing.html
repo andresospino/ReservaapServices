@@ -1,0 +1,47 @@
+<html>
+<head>
+	<head>		
+		<link href="assets/css/landing.css"   rel="StyleSheet" type="text/css">
+		
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<meta http-equiv="x-ua-compatible" content="IE=edge" />
+		<script src="assets/js/jquery-1.9.1.js"></script>
+		<script src="https://reservapp.azure-mobile.net/client/MobileServices.Web-1.0.0.min.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function(){
+			var client = new WindowsAzure.MobileServiceClient(
+				"https://reservapp.azure-mobile.net/",
+				"VyjaYxMKylJgcAcrOjHxhnydiCZlzL79"
+				);
+
+			var Register = function (){
+				$(document.getElementById("BtLogin")).on('click',function(){
+					var correo = $(document.getElementById("TbCorreo")).val();
+					client.getTable("mail").insert(correo);
+				});
+			};
+		};
+		</script>
+	</head>
+	<body>
+		<section>
+			<article class="content-x2">
+				<div class="content">
+					<span class="Reservapp">ReservApp</span><br />
+					<p class="TextoMediano">Suscribete y se el primero en probar nuestra app.</p><br />
+
+					<input ID="TbCorreo"  name="email"  type="email" PlaceHolder="Correo Electronico" class="TextBox" required="required"  />			
+					<button type="button" ID="BtLogin"  Class="Botones" >Suscribirse</button><br />
+
+				</div>
+			</article>
+			<article class="content-x2">
+				<div class="phone-background">
+					<img class="iphone" src="assets/img/iphone.png"/>
+					<div>
+					</article>
+				</section>
+
+			</body>
+			</html>
